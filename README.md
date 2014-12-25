@@ -1,0 +1,4 @@
+smsplug
+=======
+
+cordova sms test
