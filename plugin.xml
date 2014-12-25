@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.hyyljt.smsplugin"
+    version="1.0.0">
+    <name>sms</name>
+    <description>A plugin for sending sms messages</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,plugins,sms</keywords>    
+
+    <js-module name="sms" src="www/sms.js">
+        <clobbers target="window.sms" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="sms">
+                <param name="android-package" value="com.hyyljt.smsplugin.sms" />
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.SEND_SMS" />
+        </config-file>        
+        
+        <source-file src="src/android/sms.java" 
+                     target-dir="src/com/hyyljt/smsplugin" />
+    </platform>
+</plugin>
